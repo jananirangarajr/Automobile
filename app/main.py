@@ -9,7 +9,7 @@ database_obj = db_connect.DatabaseInitialize()
 
 @app.get("/cars/{car_id}")
 async def get_car_details(car_id: str):
-    result = db_connect.get_car_details(database_obj, '_id',ObjectId(car_id))
+    result = db_connect.get_car_details(database_obj, '_id', ObjectId(car_id))
     for doc in result:
         doc["_id"] = str(doc["_id"])
         return JSONResponse(content={"result": doc}, status_code=200)
@@ -25,7 +25,7 @@ async def add_car_details(car : car.Cars):
 
 @app.put("/cars/{car_id}")
 async def update_car_details(car_id: str, car : car.ModifiedCar):
-    result = db_connect.update_car_details(database_obj,car_id,dict(car))
+    result = db_connect.update_car_details(database_obj, car_id, dict(car))
     if result:
         return JSONResponse(content={"result": "success"}, status_code=200)
     else:
