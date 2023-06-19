@@ -1,10 +1,13 @@
 from bson import ObjectId
 from pymongo import MongoClient
+import os
 
 class DatabaseInitialize:
-    container_name = 'localhost'
+    container_name = os.environ.get('MONGODB_CONTAINER_NAME')
+    print(f"Container name :{container_name}")
+    # container_name = 'localhost'
 
-    client = MongoClient(f'mongodb://{container_name}:7777')
+    client = MongoClient(f'mongodb://{container_name}:27017')
 
     db = client['car-shop']
 
