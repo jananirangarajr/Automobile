@@ -22,6 +22,14 @@ def insert(db_object,car_details):
     else:
         return ""
 
+def get_all_car_details(db_object):
+    cars = {}
+    result = db_object.collection.find()
+    for doc in result:
+        doc["_id"] = str(doc["_id"])
+        key = doc["_id"]
+        cars[key] = doc
+    return cars
 def get_car_details(db_object, field ,value):
     return db_object.collection.find({field:value})
 
