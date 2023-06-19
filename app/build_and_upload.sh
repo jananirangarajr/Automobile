@@ -1,4 +1,4 @@
-#docker network create new-network --subnet 172.18.0.0/16
+docker network create new-network --subnet 172.18.0.0/16
 docker pull mongodb/mongodb-community-server
 docker stop mongo
 docker rm mongo

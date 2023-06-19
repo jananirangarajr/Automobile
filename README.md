@@ -27,7 +27,7 @@ Remove a car from the shop -> DELETE /cars/:id
 1. Have docker installed in the machine
 2. Clone the project
 3. Open terminal with the downloaded project location
-4. Type command - docker-compose up
+4. Type command - docker-compose up (note: by default docker compose is installed in mac and windows while installing docker. If you are running linux, install docker compose separate or run sh build_and_upload.sh)
 5. Now the project is deployed. we can test the api's
 
 Please refer to the API's for the automobile project
