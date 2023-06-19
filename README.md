@@ -22,7 +22,7 @@ Get a car in the shop -> GET /cars/:id
 Get all cars in the shop -> GET /cars/
 Remove a car from the shop -> DELETE /cars/:id 
 
-Steps to Run the code:
+**Steps to Run the code:**
 
 1. Have docker installed in the machine
 2. Clone the project
