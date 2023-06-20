@@ -3,9 +3,18 @@ import db_connect
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import car
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 database_obj = db_connect.DatabaseInitialize()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/cars/{car_id}")
 async def get_car_details(car_id: str):
