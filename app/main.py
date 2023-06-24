@@ -32,6 +32,9 @@ async def get_all_car_details():
 
 @app.post("/cars")
 async def add_car_details(car : car.Cars):
+    car = dict(car)
+    car["shop"] = dict(car["shop"])
+
     result = db_connect.insert(database_obj, dict(car))
     if result is not "":
         return JSONResponse(content={"message": "success","id":result}, status_code=200)

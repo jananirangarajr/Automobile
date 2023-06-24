@@ -15,7 +15,6 @@ class DatabaseInitialize:
     id = 1;
 
 def insert(db_object,car_details):
-    #car_details[id] = db_object.id
     result = db_object.collection.insert_one(car_details)
     if result.acknowledged:
         return str(result.inserted_id)
@@ -23,12 +22,12 @@ def insert(db_object,car_details):
         return ""
 
 def get_all_car_details(db_object):
-    cars = {}
+    cars = []
     result = db_object.collection.find()
     for doc in result:
         doc["_id"] = str(doc["_id"])
         key = doc["_id"]
-        cars[key] = doc
+        cars.append(doc)
     return cars
 def get_car_details(db_object, field ,value):
     return db_object.collection.find({field:value})

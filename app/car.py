@@ -1,6 +1,12 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
+class Shop(BaseModel):
+    shopId: int = Field(..., ge=0, le=48)
+    name: str
+    city: str
+    state: str
+
 class Cars(BaseModel):
     VIN: str
     plate: str
@@ -15,6 +21,8 @@ class Cars(BaseModel):
     technician: str
     city: str
     Zipcode: int
+    shop: Shop
+
 
 class ModifiedCar(BaseModel):
     VIN: Optional[str] = None
