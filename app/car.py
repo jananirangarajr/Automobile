@@ -1,27 +1,22 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 
-class Shop(BaseModel):
-    shopId: int = Field(..., ge=0, le=48)
-    name: str
-    city: str
-    state: str
-
 class Cars(BaseModel):
-    VIN: str
+    vin: str
     plate: str
     state: str
-    Model: int
+    model: int
     owner_name: str
-    owner_Address: str
-    owner_DL: str
+    owner_address: str
+    owner_dl: str
     problem_description: str
     date_in: str
     date_out: str
     technician: str
-    city: str
-    Zipcode: int
-    shop: Shop
+    shop_id: int = Field(..., ge=0, le=48)
+    shop_name: str
+    shop_city: str
+    shop_state: str
 
 
 class ModifiedCar(BaseModel):
