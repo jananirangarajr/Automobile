@@ -112,23 +112,24 @@ components:
     Cars:
       title: Cars
       required:
-        - VIN
+        - vin
         - plate
         - state
-        - Model
+        - model
         - owner_name
-        - owner_Address
-        - owner_DL
+        - owner_address
+        - owner_dl
         - problem_description
         - date_in
         - date_out
         - technician
-        - city
-        - Zipcode
-        - shop
+        - shop_id
+        - shop_name
+        - shop_city
+        - shop_state
       type: object
       properties:
-        VIN:
+        vin:
           title: Vin
           type: string
         plate:
@@ -137,16 +138,16 @@ components:
         state:
           title: State
           type: string
-        Model:
+        model:
           title: Model
           type: integer
         owner_name:
           title: Owner Name
           type: string
-        owner_Address:
+        owner_address:
           title: Owner Address
           type: string
-        owner_DL:
+        owner_dl:
           title: Owner Dl
           type: string
         problem_description:
@@ -161,14 +162,18 @@ components:
         technician:
           title: Technician
           type: string
-        city:
-          title: City
+        shop_id:
+          title: Shop Id
           type: string
-        Zipcode:
-          title: Zipcode
-          type: integer
-        shop:
-          $ref: '#/components/schemas/Shop'
+        shop_name:
+          title: Shop Name
+          type: string
+        shop_city:
+          title: Shop City
+          type: string
+        shop_state:
+          title: Shop State
+          type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -182,7 +187,7 @@ components:
       title: ModifiedCar
       type: object
       properties:
-        VIN:
+        vin:
           title: Vin
           type: string
         plate:
@@ -191,16 +196,16 @@ components:
         state:
           title: State
           type: string
-        Model:
+        model:
           title: Model
           type: integer
         owner_name:
           title: Owner Name
           type: string
-        owner_Address:
+        owner_address:
           title: Owner Address
           type: string
-        owner_DL:
+        owner_dl:
           title: Owner Dl
           type: string
         problem_description:
@@ -215,34 +220,17 @@ components:
         technician:
           title: Technician
           type: string
-        city:
-          title: City
+        shop_id:
+          title: Shop Id
           type: string
-        Zipcode:
-          title: Zipcode
-          type: integer
-    Shop:
-      title: Shop
-      required:
-        - shopId
-        - name
-        - city
-        - state
-      type: object
-      properties:
-        shopId:
-          title: Shopid
-          maximum: 48
-          minimum: 0
-          type: integer
-        name:
-          title: Name
+        shop_name:
+          title: Shop Name
           type: string
-        city:
-          title: City
+        shop_city:
+          title: Shop City
           type: string
-        state:
-          title: State
+        shop_state:
+          title: Shop State
           type: string
     ValidationError:
       title: ValidationError
