@@ -5,7 +5,8 @@ class Cars(BaseModel):
     vin: str
     plate: str
     state: str
-    model: int
+    model: str
+    year: str
     owner_name: str
     owner_address: str
     owner_dl: str
@@ -23,7 +24,8 @@ class ModifiedCar(BaseModel):
     vin: Optional[str] = None
     plate: Optional[str] = None
     state: Optional[str] = None
-    model: Optional[int] = None
+    model: Optional[str] = None
+    year: Optional[str] = None
     owner_name: Optional[str] = None
     owner_address: Optional[str] = None
     owner_dl: Optional[str] = None
